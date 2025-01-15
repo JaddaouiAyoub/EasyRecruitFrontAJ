@@ -1,0 +1,70 @@
+<div class="application-form-container">
+  <h2 mat-dialog-title class="form-title">Apply for a Job</h2>
+
+  <mat-dialog-content>
+    <form (ngSubmit)="submitApplication()">
+      <div class="form-group">
+        <label for="fullName">Full Name <span class="required">*</span></label>
+        <input
+          type="text"
+          id="fullName"
+          [(ngModel)]="formData.fullName"
+          name="fullName"
+          class="form-control"
+          required
+          placeholder="Your full name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address <span class="required">*</span></label>
+        <input
+          type="email"
+          id="email"
+          [(ngModel)]="formData.email"
+          name="email"
+          class="form-control"
+          required
+          placeholder="Your email address"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="lettreMotivation">Cover Letter <span class="required"></span></label>
+        <input
+          type="file"
+          id="lettreMotivation"
+          (change)="onFileSelect($event, 'lettreMotivation')"
+          class="form-control-file"
+        />
+        <small *ngIf="fileErrors.lettreMotivation" class="error-message">
+          {{ fileErrors.lettreMotivation }}
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="cv">Resume <span class="required">*</span></label>
+        <input
+          type="file"
+          id="cv"
+          (change)="onFileSelect($event, 'cv')"
+          class="form-control-file"
+        />
+        <small *ngIf="fileErrors.cv" class="error-message">
+          {{ fileErrors.cv }}
+        </small>
+      </div>
+
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="isUploading">
+          {{ isUploading ? 'Uploading...' : 'Submit Application' }}
+        </button>
+        <button mat-button mat-dialog-close>Cancel</button>
+      </div>
+    </form>
+  </mat-dialog-content>
+
+  <p *ngIf="submissionMessage" class="success-message">
+    {{ submissionMessage }}
+  </p>
+</div>

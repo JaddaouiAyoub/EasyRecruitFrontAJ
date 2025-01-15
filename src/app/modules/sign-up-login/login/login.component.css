@@ -1,0 +1,185 @@
+/* Palette de couleurs */
+:root {
+  --color-light-blue: #ADD8E6;
+  --color-teal-blue: #0096D6;
+  --color-dark-blue: #003366;
+  --color-yellow: #FFC300;
+  --color-orange: #FF5733;
+}
+/* Surcharge de la classe ptb80 */
+/* Supprime complètement le padding */
+.ptb80 {
+  padding-top: 15px !important;
+  padding-bottom: 5px !important;
+}
+
+/* Encapsulation totale pour la popup */
+.login-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Fond sombre semi-transparent */
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Contenu de la popup */
+.login-popup-content {
+  background-color: var(--color-light-blue);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 450px; /* Largeur maximum */
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+/* Login Box */
+.login-box {
+  background-color: white;
+  border: 2px solid var(--color-teal-blue);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px 20px; /* Réduction de l'espace intérieur */
+  margin: 0; /* Suppression des marges externes */
+  box-sizing: border-box;
+}
+
+/* Titre */
+.login-title h4 {
+  text-align: center;
+  color: var(--color-dark-blue);
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size:18px;
+}
+/* Styliser l'image dans la login-title */
+.login-box img {
+margin-left:50px;
+}
+
+/* Messages d'erreur */
+.alert-danger {
+  color: white;
+  background-color: var(--color-orange);
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Formulaire */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-dark-blue);
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--color-teal-blue);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Checkbox */
+#remember-me2 + label {
+  color: var(--color-dark-blue);
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+/* Liens */
+a {
+  color: var(--color-dark-blue);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+}
+
+.btn:last-child {
+  margin-right: 0;
+}
+
+.btn-effect {
+  background-color: var(--color-dark-blue);
+  color: white;
+}
+
+.btn-effect:hover {
+  background-color: var(--color-orange);
+  color: var(--color-light-blue);
+  transform: scale(1.03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-effect:active {
+  background-color: var(--color-yellow);
+  transform: scale(0.97);
+}
+
+/* Spinner */
+.spinner-border {
+  color: var(--color-yellow);
+}
+
+/* Centrage texte */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Disposition des éléments */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Responsivité */
+@media (max-height: 600px) {
+  .login-popup-content {
+    margin: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-popup-content {
+    width: 90%;
+  }
+}

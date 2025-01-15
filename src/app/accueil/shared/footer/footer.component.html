@@ -1,0 +1,101 @@
+<footer id="footer" class="footer1">
+  <!-- Start of Footer Information & Links Section -->
+  <div class="footer-info ptb80">
+    <div class="container">
+      <!-- 1st Footer Column: About -->
+      <div class="col-md-3 col-sm-6 col-xs-6 footer-about">
+        <a href="/src">
+          <img src="assets/ERLOGO.png" alt="EasyRecruit Logo">
+        </a>
+        <p class="pt40">
+          EasyRecruit is your trusted platform for finding the best career opportunities. We connect professionals with their dream jobs effortlessly.
+        </p>
+        <ul class="nopadding">
+          <li><i class="fa fa-map-marker"></i> {{ contactInfo.address }}</li>
+          <li><i class="fa fa-phone"></i> {{ contactInfo.phone }}</li>
+          <li><i class="fa fa-envelope-o"></i> {{ contactInfo.email }}</li>
+        </ul>
+      </div>
+
+      <!-- 2nd Footer Column: Useful Links -->
+      <div class="col-md-3 col-sm-6 col-xs-6 footer-links">
+        <h3>Useful Links</h3>
+        <ul class="nopadding">
+          <li *ngFor="let link of usefulLinks">
+            <a [href]="link.url"><i class="fa fa-angle-double-right"></i> {{ link.text }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 3rd Footer Column: Popular Posts -->
+      <div class="col-md-3 col-sm-6 col-xs-6 footer-posts">
+        <h3>Popular Posts</h3>
+        <div class="footer-blog-post" *ngFor="let post of blogPosts">
+          <div class="thumbnail-post">
+            <a [href]="post.url">
+              <img [src]="post.thumbnail" alt="Blog Thumbnail">
+            </a>
+          </div>
+          <div class="post-info">
+            <a [href]="post.url">{{ post.title }}</a>
+            <span>{{ post.date }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4th Footer Column: Newsletter -->
+      <div class="col-md-3 col-sm-6 col-xs-6 footer-newsletter">
+        <h3>Newsletter</h3>
+        <p>
+          Stay updated with the latest job opportunities and career insights by subscribing to our newsletter.
+        </p>
+        <form action="#" class="form-inline mailchimp mtb30" novalidate="true">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your Email">
+              <button type="submit" class="btn btn-blue btn-effect">Subscribe</button>
+            </div>
+          </div>
+        </form>
+        <!-- Live Chat -->
+        <div class="footer-chat row nomargin">
+          <div class="col-md-4">
+            <div class="supporter-image">
+              <img src="assets/images/clients/client4.jpg" alt="Supporter">
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="chat-details">
+              <span>Helpline Center</span>
+              <p class="pt10 nomargin">Chat with our team now!<br> Hello, my name is John Doe, how may I assist you?</p>
+              <div class="text-right pt15">
+                <a href="#"><i class="fa fa-comments-o"></i> Live Chat</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Copyright Section -->
+  <div class="copyright ptb40">
+    <div class="container">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <span>Copyright © <a href="/src">EasyRecruit</a>. All Rights Reserved</span>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <ul class="social-btns list-inline text-right">
+          <li *ngFor="let social of socialMediaLinks">
+            <a [href]="social.url" class="social-btn-roll">
+              <div class="social-btn-roll-icons">
+                <i class="social-btn-roll-icon fa" [class]="social.icon"></i>
+                <i class="social-btn-roll-icon fa" [class]="social.icon"></i>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

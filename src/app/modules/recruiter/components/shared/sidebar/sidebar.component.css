@@ -1,0 +1,111 @@
+/* Palette de couleurs */
+:root {
+  --color-light-blue: #ADD8E6; /* Bleu clair */
+  --color-teal-blue: #0096D6; /* Bleu principal */
+  --color-dark-blue: #003366; /* Bleu foncé */
+  --color-yellow: #FFC300;   /* Jaune */
+  --color-orange: #FF5733;    /* Rouge */
+  --color-white: #ffffff;     /* Blanc */
+  --color-grey-light: #f9f9f9; /* Gris clair */
+  --color-grey: #ddd;         /* Gris */
+  --color-black: #333;        /* Noir */
+  --color-dark-red: #9f0000;  /* Rouge sombre pour déconnexion */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  height: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  overflow-y: auto;
+  border-right: 1px solid var(--color-grey); /* Gris pour la bordure */
+  background-color: var(--color-teal-blue); /* Bleu principal */
+  color: var(--color-white);
+}
+
+/* Menu de la Sidebar */
+.sidebar-menu a {
+  text-decoration: none;
+  color: var(--color-white);
+  padding: 15px 20px;
+  border-radius: 5px;
+  display: block;
+  font-size: 17px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect pour les liens du menu */
+.sidebar-menu a:hover {
+  background-color: var(--color-light-blue); /* Bleu clair pour le survol */
+  color: var(--color-dark-blue); /* Bleu foncé pour le texte au survol */
+}
+
+/* Active link style */
+.sidebar-menu a.active {
+  color: var(--color-yellow); /* Jaune pour le lien actif */
+  font-weight: bold;
+}
+
+/* Header de la Sidebar */
+.sidebar-header {
+  margin-bottom: 50px;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.navbar-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 25px;
+  font-size: 1.5rem; /* Agrandit la taille du texte */
+}
+
+.navbar-brand img {
+  max-width: 150px; /* Ajuste la largeur maximale du logo */
+  height: auto; /* Conserve les proportions */
+}
+
+
+/* Petit texte sous le logo */
+small {
+  font-size: 15px;
+  color: #003366; /* Bleu clair pour le texte */
+}
+
+/* Icones dans les liens */
+i {
+  padding-right: 10px;
+  font-size: 20px;
+  color: var(--color-white); /* Blanc pour les icônes */
+}
+
+/* Style pour le bouton de déconnexion */
+.logout {
+  color: var(--color-dark-red); /* Rouge sombre pour le logout */
+}
+
+.logout:hover {
+  background-color: var(--color-orange); /* Orange au survol du logout */
+  color: var(--color-white); /* Texte en blanc lors du survol */
+}
+
+/* Réactivité */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+    padding: 15px;
+  }
+
+  .sidebar-menu a {
+    font-size: 16px; /* Ajuster la taille du texte pour les petits écrans */
+  }
+
+  .navbar-brand img {
+    width: 60%; /* Réduire la taille du logo sur mobile */
+  }
+}
+

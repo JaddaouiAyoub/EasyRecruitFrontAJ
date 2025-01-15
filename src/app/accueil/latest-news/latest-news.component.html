@@ -1,0 +1,21 @@
+<section class="ptb80" id="latest-news">
+  <div class="container">
+    <!-- Titre de la section -->
+    <div class="section-title">
+      <h2>Latest News</h2>
+    </div>
+
+    <!-- Liste des articles -->
+    <div class="row">
+      <div class="col-md-4 col-xs-12" *ngFor="let post of blogPosts">
+        <app-blog-post [post]="post"></app-blog-post>
+      </div>
+    </div>
+
+    <!-- Texte additionnel et bouton -->
+    <div class="col-md-12 col-xs-12 mt60 text-center">
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+      <a href="/blog" class="btn btn-purple btn-effect mt20">Visit Blog</a>
+    </div>
+  </div>
+</section>

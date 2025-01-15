@@ -1,0 +1,141 @@
+/* Sidebar fixée */
+.fixed-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: var(--color-teal-blue); /* Utiliser le bleu principal */
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.ptb80 {
+  display: flex;
+  padding-top: 0;
+  height: 100%;
+  background-color: #ADD8E6; /* Couleur de fond principale */
+}
+
+app-sidebar {
+  flex-shrink: 0; /* Assure que le sidebar conserve sa taille */
+  background-color: #003366; /* Couleur sombre pour le sidebar */
+}
+.container {
+  padding: 25px;
+  margin-left: 250px;
+  max-width: 1500px;
+  background: var(--white);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.container {
+  padding-top: 25px;
+  color: #003366; /* Texte foncé pour contraster */
+}
+
+.search-jobs .btn-blue {
+  background-color: #0096D6;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.search-jobs .btn-blue:hover {
+  background-color: #005F99; /* Couleur plus sombre au survol */
+}
+
+.filters {
+  background-color: #FFC300;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: #003366;
+}
+
+.filters select {
+  border: 1px solid #003366;
+  border-radius: 5px;
+  padding: 8px;
+  color: #003366;
+}
+
+.filters .btn {
+  background-color: #FF5733;
+  color: white;
+  border: none;
+}
+
+.filters .btn:hover {
+  background-color: #C74328; /* Couleur plus sombre au survol */
+}
+
+.item-block {
+  background-color: #FFFFFF;
+  border: 1px solid #DDD;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  color: #003366;
+}
+
+.item-block .job-post-header h4,
+.item-block .job-post-header h5 {
+  margin: 0;
+  color: #003366;
+}
+
+.item-block .job-post-header ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-block .btn-green {
+  background-color: #0096D6;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.item-block .btn-green:hover {
+  background-color: #005F99;
+}
+
+.job-post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #003366;
+}
+
+.offer-image {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+/* Modifications spécifiques */
+.job-post-header {
+  display: flex;
+  align-items: center; /* Align les éléments horizontalement */
+}
+
+.job-post-header img {
+  max-width: 50px; /* Taille de l'image ajustée */
+  margin-right: 15px; /* Espace entre l'image et le titre */
+}
+
+.job-post-header .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-right: auto; /* Permet de pousser le titre à gauche */
+}
+
+.job-post-header .time {
+  text-align: right;
+  margin-left: auto; /* Pousse la date complètement à droite */
+}

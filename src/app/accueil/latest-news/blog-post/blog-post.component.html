@@ -1,0 +1,23 @@
+<div id= blogs class="blog-post">
+  <!-- Image de l'article -->
+  <div class="blog-post-thumbnail">
+    <a [href]="post.link" class="hover-link">
+      <img [src]="post.image" alt="Blog Image">
+    </a>
+  </div>
+
+  <!-- Infos sur l'article -->
+  <div class="post-info">
+    <a [href]="post.link">{{ post.title }}</a>
+
+    <div class="post-details">
+      <span class="date"><i class="fa fa-calendar"></i> {{ post.date }}</span>
+      <span class="comments"><i class="fa fa-comment"></i> {{ post.comments }} Comments</span>
+    </div>
+
+    <p>{{ post.description }}</p>
+  </div>
+
+  <!-- Bouton "Read More" -->
+  <a [href]="post.link" class="btn btn-blue btn-small btn-effect">Read More</a>
+</div>

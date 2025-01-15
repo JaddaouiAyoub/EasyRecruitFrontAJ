@@ -1,0 +1,36 @@
+<!-- ===== Start of Page not Found Section ===== -->
+<section class="ptb160" id="page-not-found" >
+    <div class="container" *ngIf="isAuthorized == true">
+
+        <!-- First Column -->
+        <div class="col-md-6" style="margin-top: 25px">
+            <h2>Get Ready for Your Interview!</h2>
+            <h3 class="capitalize">Take a deep breath, stay confident, and get started when you're ready.</h3>
+        </div>
+
+        <!-- Second Column -->
+        <div class="col-md-6" style="text-align: left">
+            <h3>Tips for Success:</h3>
+            <ul>
+              <li>• Make sure you are in a quiet environment.</li>
+              <li>• Check your internet connection and camera/microphone setup.</li>
+              <li>• Keep your resume and any necessary documents nearby.</li>
+              <li>• Dress professionally, even for a virtual interview.</li>
+              <li>• Do not use a mobile phone for the interview.</li>
+              <li>• Attend the interview individually without any external help.</li>
+            </ul>
+        </div>
+        <button style="margin-top: 50px" class="btn btn-blue btn-effect mt20" (click)="startVideoSimulation()">I'm Ready!</button>
+    </div>
+  <div class="container" *ngIf="isAuthorized == false">
+    <h2>Access Denied</h2>
+    <p>You are not authorized to access this page.</p>
+  </div>
+  <div *ngIf="isAuthorized === null" class="spinner-container">
+    <mat-spinner></mat-spinner> <br/><br/>
+    <p>Vérification en cours...</p>
+  </div>
+
+</section>
+<!-- ===== End of Page not Found Section ===== -->
+

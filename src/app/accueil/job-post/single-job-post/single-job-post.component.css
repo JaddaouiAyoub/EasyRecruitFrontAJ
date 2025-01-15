@@ -1,0 +1,127 @@
+/* ============================= */
+/* General Styles                */
+/* ============================= */
+.single-job-post {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.single-job-post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================= */
+/* Company Logo Styles           */
+/* ============================= */
+.job-company img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.job-company a {
+  display: inline-block;
+  text-align: center;
+}
+
+/* ============================= */
+/* Job Information Styles        */
+/* ============================= */
+.job-title a {
+  font-size: 18px;
+  font-weight: bold;
+  color: #003366;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.job-title a:hover {
+  color: #0056b3;
+}
+
+.job-info {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.job-info span {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.job-info i {
+  color: #FFC300;
+  margin-right: 5px;
+}
+
+/* ============================= */
+/* Job Category Styles           */
+/* ============================= */
+.job-category .btn {
+  display: inline-block;
+  background-color: #0096D6;
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.job-category .btn:hover {
+  background-color: #0056b3;
+}
+
+.job-category .btn-small {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+/* ============================= */
+/* Responsive Design             */
+/* ============================= */
+@media (max-width: 768px) {
+  .single-job-post {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .job-company img {
+    margin-bottom: 10px;
+  }
+
+  .job-info {
+    margin-top: 5px;
+  }
+
+  .job-category {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .job-title a {
+    font-size: 16px;
+  }
+
+  .job-info {
+    font-size: 13px;
+  }
+
+  .job-category .btn {
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+}

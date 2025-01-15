@@ -1,0 +1,78 @@
+<!-- =============== Start of Sidebar =============== -->
+<aside class="sidebar bg-light">
+    <div class="sidebar-header text-center py-4">
+
+        <!-- Logo -->
+            <a class="navbar-brand nomargin" href="index.html"><img src="assets/images/ERLOGOBLEU.png" alt="logo"></a>
+            <!-- INSERT YOUR LOGO HERE -->
+        <small>Welcome, {{userName}}</small>
+    </div>
+    <ul class="list-unstyled sidebar-menu">
+
+      <!-- Offers -->
+      <li>
+        <a routerLink="/recruiter/internship-offers" routerLinkActive="active"  class="d-flex align-items-center">
+          <i class="fa-solid fa-briefcase me-2"></i> EasyRecruit Offers
+        </a>
+      </li>
+
+        <!-- Profile -->
+        <li>
+            <a routerLink="/recruiter/recruiter-profile" routerLinkActive="active" class="d-flex align-items-center">
+                <i class="fa-solid fa-user-circle me-2"></i> Profile
+            </a>
+        </li>
+        <!-- Dashboard -->
+        <li>
+            <a  routerLink="/recruiter/dashboard" routerLinkActive="active" class="d-flex align-items-center">
+                <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+            </a>
+        </li>
+
+
+      <li>
+        <a routerLink="/recruiter/mes-offres" routerLinkActive="active" class="d-flex align-items-center">
+          <i class="fa-solid fa-file-alt"></i> My offers
+        </a>
+      </li>
+
+        <li>
+            <a routerLink="/recruiter//offer-posting" routerLinkActive="active" class="d-flex align-items-center">
+              <i class="fa-solid fa-plus-circle me-2"></i> Create Offer
+            </a>
+        </li>
+
+
+
+      <li>
+        <a routerLink="/recruiter/candidatures" routerLinkActive="active" class="d-flex align-items-center">
+          <i class="fa-solid fa-file-alt"></i> Candidates
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/recruiter/interview-list" routerLinkActive="active" class="d-flex align-items-center">
+          <i class="fa-solid fa-video-camera"></i> Interviews
+        </a>
+      </li>
+
+        <li>
+            <a routerLink="/recruiter/interview-form" routerLinkActive="active" class="d-flex align-items-center">
+              <i class="fa-solid fa-plus-circle me-2"></i> Create Interview
+            </a>
+        </li>
+
+
+      <!-- Logout -->
+      <li>
+        <a (click)="logout()" class="d-flex align-items-center" style="color: #9f0000;">
+          <i class="fa-solid fa-sign-out-alt me-2"></i> Logout
+        </a>
+      </li>
+    </ul>
+</aside>
+<!-- =============== End of Sidebar =============== -->
+
+
+
+

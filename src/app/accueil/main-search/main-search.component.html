@@ -1,0 +1,51 @@
+<section class="main overlay-black">
+  <div class="container wrapper">
+    <h1 class="capitalize text-center text-white">Your career starts now</h1>
+    <form class="job-search-form row pt40" (submit)="searchJobs(); $event.preventDefault()">
+      <div class="col-md-3 col-sm-12 search-keywords">
+        <label for="search-keywords">Keywords</label>
+        <input
+          type="text"
+          id="search-keywords"
+          [(ngModel)]="keywords"
+          name="keywords"
+          placeholder="Keywords"
+          class="form-control"
+        />
+      </div>
+      <div class="col-md-3 col-sm-12 search-domains">
+        <label for="search-domains">Domain</label>
+        <select
+          id="search-domains"
+          [(ngModel)]="domain"
+          name="domain"
+          class="form-control"
+        >
+          <option value="">Any Domain</option>
+          <option *ngFor="let domain of domains" [value]="domain">
+            {{ domain }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-3 col-sm-12 search-location">
+        <label for="search-location">Location</label>
+        <select
+          id="search-location"
+          [(ngModel)]="location"
+          name="location"
+          class="form-control"
+        >
+          <option value="">Any Location</option>
+          <option *ngFor="let loc of locations" [value]="loc">
+            {{ loc }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-2 col-sm-12 search-submit">
+        <button type="submit" class="btn btn-blue btn-effect btn-large">
+          <i class="fa fa-search"></i> Search
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

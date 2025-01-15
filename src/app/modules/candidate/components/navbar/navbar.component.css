@@ -1,0 +1,54 @@
+/* Navbar Styles */
+.bg-navbar {
+  background-color: #003366;
+  padding: 10px 20px; /* Add spacing around the navbar */
+}
+
+.navbar-brand {
+  color: #FFC300 !important;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.nav-link {
+  color: #ADD8E6 !important;
+  font-weight: 500;
+  margin-right: 20px;
+  font-size: 14px;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid #FFC300;
+  padding-bottom: 5px;
+}
+
+.nav-link.text-danger {
+  color: #FF5733 !important;
+  font-weight: bold;
+}
+
+/* Logout Link */
+.logout-link {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logout-link i {
+  margin-right: 5px; /* Space between icon and text */
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Navbar Alignment */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav.ms-auto {
+  margin-left: auto;
+  justify-content: flex-end; /* Push logout to the far right */
+}
+

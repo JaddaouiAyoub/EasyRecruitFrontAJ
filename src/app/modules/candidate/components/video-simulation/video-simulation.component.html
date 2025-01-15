@@ -1,0 +1,46 @@
+<section *ngIf="!isProcessing && !isFinished">
+  <!--  <h2>Instructions pour débuter la simulation</h2>-->
+  <!--  <p>Suivez les instructions ci-dessous pour répondre aux questions et commencer la simulation.</p>-->
+
+  <!-- Video Element -->
+  <video #videoElement autoplay muted></video>
+
+  <div *ngIf="!isFinished">
+    <!-- Timer Display -->
+    <!--    <p class="timer">Temps passé : {{ timer }} secondes</p>-->
+    <!-- Question Display -->
+    <div *ngIf="currentQuestionIndex < questions.length && recording" class="question-container">
+      <h3>{{ questions[currentQuestionIndex].contenu }}</h3>
+      <button (click)="sendAudioOnDemand()">Suivant</button>
+    </div>
+
+    <!-- Start/Stop buttons for recording -->
+    <button *ngIf="!recording" (click)="startRecording()" class="btn-start">
+      Commencer la Simulation
+    </button>
+    <!--    <button *ngIf="recording" (click)="stopRecording()" class="btn-stop">-->
+    <!--      Arrêter l'enregistrement-->
+    <!--    </button>-->
+  </div>
+
+
+  <!-- Error Message Display -->
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+</section>
+<!-- Message de fin -->
+<div *ngIf="isFinished">
+  <h3>Simulation terminée !</h3>
+  <iframe [src]="generatedPdfUrl" width="100%" height="500px"></iframe>
+</div>
+
+<div *ngIf="isProcessing" class="processing-container">
+  <div class="spinner"></div>
+  <h3>Simulation terminée ! et votre entretien est en cours d'évaluation...</h3>
+  <p>Veuillez ne pas quitter cette page. Toute interruption pourrait entraîner l'annulation de votre candidature.</p>
+</div>
+
+<!--<div *ngIf="isProcessing && currentQuestionIndex === questions.length" class="processing-container">-->
+<!--  <div class="spinner"></div>-->
+<!--  <h3>Dernière question en cours de traitement...</h3>-->
+<!--  <p>Veuillez patienter, nous générons votre rapport.</p>-->
+<!--</div>-->

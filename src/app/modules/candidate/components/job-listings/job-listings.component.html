@@ -1,0 +1,102 @@
+<app-navbar></app-navbar>
+<section class="search-jobs ptb80" id="version2">
+  <div class="container">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-4 col-xs-12 job-post-sidebar">
+        <!-- Search Location -->
+        <div class="search-location">
+          <input
+            type="text"
+            [(ngModel)]="locationFilter"
+            class="form-control"
+            placeholder="Location"
+          />
+        </div>
+
+        <!-- Job Types -->
+        <div class="job-types mt30">
+          <h4>Job Type</h4>
+          <ul class="list-inline mt20">
+            <li *ngFor="let type of jobTypes;">
+              <input
+                type="checkbox"
+                [id]="type"
+                (change)="toggleType(type)"
+                [checked]="selectedTypes.includes(type)"
+              />
+              <label [for]="type">{{ type }}</label>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Job Categories -->
+        <div class="job-categories mt30">
+          <h4 class="pb20">Categories</h4>
+          <select class="form-control" [(ngModel)]="selectedCategory">
+            <option *ngFor="let category of categories" [value]="category">
+              {{ category }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Job Listings -->
+      <div class="col-md-8 col-xs-12 job-post-main">
+        <h4 *ngIf="!isLoading">We found {{ jobs.length }} matches.</h4>
+        <div *ngIf="isLoading">Loading jobs...</div>
+        <div *ngIf="isError">Error loading jobs. Please try again later.</div>
+        <div class="job-post-wrapper mt20" *ngIf="!isLoading && !isError">
+          <div
+            class="single-job-post row nomargin"
+            *ngFor="let job of jobs; trackBy: trackById"
+          >
+            <div class="col-md-2 col-xs-3 nopadding">
+              <div class="job-company">
+                <img *ngIf="job.photo" [src]="job.photo" />
+                <img *ngIf="!job.photo" src="assets/images/default-profile.jpg"  />
+              </div>
+            </div>
+            <div class="col-md-8 col-xs-6 ptb20">
+              <div class="job-title">
+                <a [routerLink]="['/candidate/job-details', job.id]">{{ job.titre }}</a>
+              </div>
+              <div class="job-info">
+                <span class="company"><i class="fa fa-building"></i>{{ job.recruteurDTO.companyName }}</span>
+                <span class="location"><i class="fa fa-map-marker"></i>{{ job.location }}</span><br/>
+                <span class="domain"><i class="fa fa-cogs"></i> Domaine : {{ job.domaine }}</span> <!-- Icône générique pour le domaine -->
+                <div class="description" title="{{ job.description }}">
+                  {{ job.description }}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 col-xs-3 ptb30" (click)="openApplicationForm(job.id)">
+              <div class="job-category">
+                <span class="btn btn-small btn-effect">Apply</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-wrapper mt30" *ngIf="totalPages > 1">
+          <ul class="pagination">
+            <li [class.disabled]="currentPage === 0">
+              <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 0">
+                &laquo; Prev
+              </button>
+            </li>
+            <li *ngFor="let page of [].constructor(totalPages); let i = index" [class.active]="i === currentPage">
+              <button (click)="changePage(i)">{{ i + 1 }}</button>
+            </li>
+            <li [class.disabled]="currentPage === totalPages - 1">
+              <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages - 1">
+                Next &raquo;
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

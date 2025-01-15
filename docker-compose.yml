@@ -1,0 +1,14 @@
+services:
+  easyrecruitfrontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: easyrecruitfrontend
+    ports:
+      - "4201:4200"  # Mapper le port 4201 du conteneur vers le port 4200 sur la machine locale
+    networks:
+      - easy-recruit
+
+networks:
+  easy-recruit:
+    driver: bridge

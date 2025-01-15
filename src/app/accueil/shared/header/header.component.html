@@ -1,0 +1,26 @@
+<header class="header">
+  <div class="navbar">
+    <div class="navbar-logo">
+      <a routerLink="/accueil">
+        <img src="assets/ERLOGO.png" alt="EasyRecruit Logo">
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <ul class="nav-links">
+        <li><a (click)="ScrollToOffer()" routerLinkActive="active">Offres d'emploi</a></li>
+        <li><a (click)="scrollToBlogs()">Blogs</a></li>
+        <li><a (click)="scrollToFooter()">À Propos</a></li>
+        <li><a (click)="openLoginPopup()">Join Us</a></li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- Login Popup -->
+  <div class="login-popup" *ngIf="showLoginPopup">
+    <div class="login-popup-content">
+      <button class="close-btn" (click)="closeLoginPopup()">×</button>
+      <app-login></app-login>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,90 @@
+<section class="offer-page">
+  <!-- Sidebar fixe -->
+  <app-sidebar class="fixed-sidebar"></app-sidebar>
+
+  <!-- Contenu principal -->
+  <div class="container">
+    <!-- Titre -->
+    <h2>Please select an offer to create the interview</h2>
+
+    <!-- Section des Offres -->
+    <div class="row">
+      <div
+        *ngFor="let offre of offres"
+        (click)="selectOffer(offre)"
+        class="col-md-4 offer-card"
+        [class.selected-offer]="selectedOffer === offre"
+      >
+        <div class="card">
+          <img
+            *ngIf="offre.photo"
+            [src]="offre.photo"
+            alt="{{ offre.titre }}"
+            class="card-img-top"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ offre.titre }}</h5>
+            <p class="card-text">
+              <i class="fa fa-map-marker"></i> {{ offre.location }}
+            </p>
+            <p class="card-text">
+              <i class="fa fa-money"></i> {{ offre.salaire }} DH
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formulaire d'entretien dans une popup -->
+    <div *ngIf="isPopupVisible" class="popup">
+      <div class="popup-content">
+        <span class="close-btn" (click)="closePopup()">&times;</span>
+        <h3>Create an interview for "{{ selectedOffer?.titre }}"</h3>
+
+        <div class="form-group">
+          <label for="numQuestions">Number of questions:</label>
+          <input
+            type="number"
+            id="numQuestions"
+            [(ngModel)]="numQuestions"
+            (change)="updateQuestions()"
+            min="1"
+            class="form-control"
+          />
+        </div>
+
+        <!-- Conteneur des questions avec une barre de défilement -->
+        <div class="questions-container">
+          <div *ngFor="let question of questions; let i = index; trackBy: trackByIndex" class="form-group">
+            <label for="question-{{ i }}">Question {{ i + 1 }}:</label>
+            <input
+              type="text"
+              id="question-{{ i }}"
+              [(ngModel)]="questions[i]"
+              class="form-control"
+            />
+          </div>
+        </div>
+
+        <!-- Toast Container -->
+        <div class="toast-container">
+          <div *ngIf="toast" class="toast" [ngClass]="toast.type">
+            {{ toast.message }}
+          </div>
+        </div>
+
+        <button (click)="generateEntretienLink()" class="btn btn-primary">
+          Save Interview
+        </button>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+</section>

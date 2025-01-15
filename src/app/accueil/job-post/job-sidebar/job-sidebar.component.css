@@ -1,0 +1,167 @@
+/* ============================= */
+/* General Styles                */
+/* ============================= */
+div {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+h2.capitalize {
+  font-size: 24px;
+  color: #FFC300;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+h2.capitalize i {
+  color: #FF5733;
+}
+
+/* ============================= */
+/* Golden Jobs Styles            */
+/* ============================= */
+.featured-job {
+  display: flex;
+  gap: 20px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  align-items: center;
+}
+
+.featured-job .company img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.featured-job-info {
+  flex: 1;
+}
+
+.featured-job-info .job-title h5 {
+  font-size: 18px;
+  color: #003366;
+  margin: 0;
+}
+
+.featured-job-info .job-title .btn-green {
+  background-color: #28a745;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.featured-job-info .job-title .btn-green:hover {
+  background-color: #218838;
+}
+
+.featured-job-info .job-info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.featured-job-info .job-info span {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.featured-job-info .job-info i {
+  color: #FFC300;
+  margin-right: 5px;
+}
+
+.featured-job-info p {
+  font-size: 14px;
+  color: #666;
+  margin: 20px 0;
+}
+
+.featured-job-info .btn-purple {
+  background-color: #6f42c1;
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.featured-job-info .btn-purple:hover {
+  background-color: #5a369a;
+}
+
+/* ============================= */
+/* Upload Resume Styles          */
+/* ============================= */
+.upload-resume {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-resume h4 {
+  font-size: 18px;
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+.upload-resume p {
+  font-size: 14px;
+  color: #666;
+  margin: 10px 0;
+}
+
+.upload-resume .btn-blue {
+  background-color: #0096D6;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.upload-resume .btn-blue:hover {
+  background-color: #0056b3;
+}
+
+/* ============================= */
+/* Responsive Design             */
+/* ============================= */
+@media (max-width: 768px) {
+  .featured-job {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .featured-job .company img {
+    margin-bottom: 15px;
+  }
+
+  .featured-job-info .job-title {
+    display: block;
+    text-align: center;
+  }
+
+  .upload-resume {
+    padding: 15px;
+  }
+
+  .upload-resume h4 {
+    font-size: 16px;
+  }
+
+  .upload-resume .btn-blue {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}

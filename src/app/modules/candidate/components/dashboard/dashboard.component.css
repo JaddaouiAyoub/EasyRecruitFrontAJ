@@ -1,0 +1,230 @@
+/* Navbar Styles */
+/* /* Navbar Styles */
+.bg-navbar {
+  background-color: #003366;
+  padding: 10px 20px;
+}
+
+.navbar-brand {
+  color: #FFC300 !important;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.nav-link {
+  color: #ADD8E6 !important;
+  font-weight: 500;
+  margin-right: 20px;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid #FFC300;
+  padding-bottom: 5px;
+}
+
+.nav-link.text-danger {
+  color: #FF5733 !important;
+  font-weight: bold;
+}
+
+/* Logout Link Styling */
+.logout-link {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-left: auto; /* Ensures it's pushed to the right */
+  cursor: pointer;
+}
+
+.logout-link i {
+  margin-right: 5px; /* Add spacing between icon and text */
+  font-size: 14px; /* Adjust icon size */
+  cursor: pointer;
+}
+
+/* Ensure Navbar Items are Centered */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+/* Position Logout Link at the Extreme Right */
+.navbar-nav.ms-auto {
+  margin-left: auto;
+  justify-content: flex-end; /* Ensure it aligns to the extreme right */
+}
+
+.navbar-nav.me-auto {
+  justify-content: flex-start;
+}
+
+/* Center Navbar Links */
+.navbar-nav.me-auto {
+  justify-content: flex-start;
+}
+
+.navbar-nav.ms-auto {
+  justify-content: flex-end;
+}
+
+/* Center navbar items and adjust alignment */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center links horizontally */
+}
+
+/* Adjust the dropdown menu for better spacing */
+.navbar-toggler {
+  margin-right: 10px; /* Add spacing around the toggler */
+}
+
+/* Dashboard Container */
+
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  margin-top:30px;
+  padding-left: 20px;
+  padding-right:20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* Dashboard Section */
+.dashboard-section {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.dashboard-section h2 {
+  color: #003366;
+  font-size: 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ADD8E6;
+  padding-bottom: 5px;
+  margin-top:12px;
+}
+
+/* Table Styles for Statistiques */
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.stats-table th,
+.stats-table td {
+  text-align: center;
+  padding: 12px 8px;
+  font-size: 14px;
+}
+
+.stats-table th {
+  background-color: #003366;
+  color: white;
+}
+
+.stats-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* List Styles for Activities and Notifications */
+.activities-list,
+.notifications-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activities-list li,
+.notifications-list li {
+  margin-bottom: 10px;
+}
+
+.activities-list li p,
+.notifications-list li p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.activities-list li a,
+.notifications-list li a {
+  color: #0096D6;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.activities-list li a:hover,
+.notifications-list li a:hover {
+  text-decoration: underline;
+}
+/* Simulation Buttons */
+.btn-simulation {
+  background-color: #FFC300;
+  color: white;
+  border: none;
+  padding: 4px 10px; /* Smaller padding */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px; /* Smaller font size */
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-simulation:hover {
+  background-color: #e68a00;
+}
+
+.btn-simulation-complete {
+  background-color: #0096D6;
+  color: white;
+  border: none;
+  padding: 4px 10px; /* Smaller padding */
+  border-radius: 5px;
+  font-size: 12px; /* Smaller font size */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-simulation-complete:hover {
+  background-color: #0073a1;
+}
+
+/* Loading and Error Containers */
+.loading-container,
+.error-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loading-container p {
+  color: #0096D6;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.error-container p {
+  color: #FF5733;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* General Spacing */
+.dashboard-section p {
+  margin: 0 0 10px 0;
+}
+
+/* Hover Effects for Links */
+.dashboard-section a {
+  color: #0096D6;
+  text-decoration: none;
+}
+
+.dashboard-section a:hover {
+  text-decoration: underline;
+}

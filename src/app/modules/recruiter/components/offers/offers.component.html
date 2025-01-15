@@ -1,0 +1,149 @@
+<section class="search-jobs ptb80" id="version4">
+  <app-sidebar class="fixed-sidebar"></app-sidebar>
+  <div class="container">
+    <form class="row" (ngSubmit)="onSearch()">
+      <div class="col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-8">
+        <input
+          type="text"
+          name="search-keywords"
+          id="search-keywords"
+          class="form-control"
+          placeholder="Keywords"
+          [(ngModel)]="searchKeyword"
+        />
+      </div>
+      <div class="col-md-2 col-sm-2 col-xs-4">
+        <button type="submit" class="btn btn-blue btn-effect">
+          <i class="fa fa-search"></i> Search
+        </button>
+      </div>
+    </form>
+
+    <!-- Filter Section -->
+    <div class="row mt20">
+      <div class="col-md-12">
+        <div class="filters">
+          <form (ngSubmit)="onFilterChange()">
+            <div class="row">
+              <!-- Domain Filter -->
+              <div class="col-md-3 col-sm-4 col-xs-12">
+                <label for="filter-domain">Domain</label>
+                <select
+                  id="filter-domain"
+                  class="form-control"
+                  [(ngModel)]="selectedDomain"
+                  name="domain"
+                >
+                  <option value="">All domains</option>
+                  <option *ngFor="let domain of domains" [value]="domain">{{ domain }}</option>
+                </select>
+              </div>
+
+              <!-- Location Filter -->
+              <div class="col-md-3 col-sm-4 col-xs-12">
+                <label for="filter-location">Location</label>
+                <select
+                  id="filter-location"
+                  class="form-control"
+                  [(ngModel)]="selectedLocation"
+                  name="location"
+                >
+                  <option value="">All locations</option>
+                  <option *ngFor="let location of locations" [value]="location">{{ location }}</option>
+                </select>
+              </div>
+
+              <!-- Salary Filter -->
+              <div class="col-md-3 col-sm-4 col-xs-12">
+                <label for="filter-salary">Salary</label>
+                <select
+                  id="filter-salary"
+                  class="form-control"
+                  [(ngModel)]="selectedSalary"
+                  name="salary"
+                >
+                  <option value="">Max salary</option>
+                  <option *ngFor="let salary of salaries" [value]="salary">{{ salary }} DH</option>
+                </select>
+              </div>
+
+              <!-- Mes Offres Button -->
+              <div class="col-md-3 col-sm-4 col-xs-12">
+                <button type="submit" class="btn btn-blue btn-effect mt25" >
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+
+
+            </div>
+
+        </form>
+        <!-- End of Form -->
+
+      </div>
+    </div>
+
+<div class="col-md-12 mt20">
+  <h4 *ngIf="!filteredOffres.length" >We found 0 results.</h4>
+
+  <h4 *ngIf="filteredOffres.length" >We found {{ filteredOffres.length }} results.</h4>
+
+</div>
+
+
+
+      <div *ngFor="let offre of filteredOffres" class="col-md-12 mt20">
+        <div class="item-block shadow-hover">
+          <div class="job-post-header clearfix">
+            <img [src]="offre.recruteurDTO.profilPic" alt="Logo" />
+
+            <div class="details">
+              <a [routerLink]="'/recruiter/offer/' + offre.id">
+                <h4>{{ offre.titre }}</h4>
+              </a>
+              <h5><small>{{ offre.domaine }}</small></h5>
+            </div>
+
+            <ul class="pull-right">
+              <li *ngIf="userRole == 'CANDIDAT'">
+                <a href="#" class="btn btn-green btn-small btn-effect">Je postule</a>
+              </li>
+              <li>
+                <h6 class="time">{{ offre.datePublication | date }}</h6>
+              </li>
+            </ul>
+          </div>
+
+          <div class="job-post-body">
+            <div class="job-post-description">
+              <p class="mt10">
+                {{ offre.recruteurDTO.firstName }} {{ offre.recruteurDTO.lastName }}:
+                <span>
+              {{ offre.description | slice:0:500 }}...
+  </span>
+                <a [routerLink]="'/recruiter/offer/' + offre.id" class="show-details-link">
+                  Show Details
+                </a>
+              </p>
+
+            </div>
+            <div class="job-post-image" *ngIf="offre.photo">
+              <img [src]="offre.photo" class="offer-image" />
+            </div>
+          </div>
+          <div class="job-post-footer row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <i class="fa fa-map-marker"></i>
+              <span>{{ offre.location }}</span>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12" *ngIf="offre.salaire">
+              <i class="fa fa-money"></i>
+              <span>{{ offre.salaire }} DH</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--  </div>-->
+</section>

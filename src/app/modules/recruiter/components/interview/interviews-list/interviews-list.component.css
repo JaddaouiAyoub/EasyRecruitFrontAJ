@@ -1,0 +1,275 @@
+/* Sidebar fixée */
+.fixed-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: #f4f4f4;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+/* Conteneur principal */
+.container {
+  padding: 25px;
+  margin-left: 250px;
+  max-width: 1200px;
+  background: #ffffff;
+  border-radius: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Titre */
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Barre de filtre */
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.filter label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-right: 10px;
+}
+
+.filter select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.filter select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+/* Tableau */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th, table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  color: #333;
+}
+
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Boutons */
+.btn {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Boutons de couleur */
+.btn-blue {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-blue:hover {
+  background-color: #0056b3;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 18px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.btn-icon:hover {
+  color: #0056b3;
+}
+
+/* Détails du candidat */
+.details {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+.details-popup .profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.details-popup .info p {
+  margin: 8px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* Aucun élément trouvé */
+.no-data {
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+  margin-top: 20px;
+}
+
+
+.pdf-link i, .pdf-link mat-icon {
+  font-size: 34px; /* Ajuster la taille */
+  vertical-align: center;
+}
+.report-iframe-container {
+  margin-top: 20px;
+  border: 2px solid #ddd;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+iframe {
+  border: none;
+  border-radius: 8px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+}
+.report-iframe-container {
+  position: relative;
+}
+/* Flouter l'arrière-plan */
+body.modal-open {
+  overflow: hidden; /* Empêche le défilement */
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Couleur semi-transparente pour le fond */
+  backdrop-filter: blur(8px); /* Applique l'effet de flou */
+  z-index: 999; /* Place derrière la fenêtre modale */
+}
+
+/* Conteneur de l'iframe */
+.report-iframe-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  border-radius: 8px;
+  z-index: 1000; /* Place devant le fond flou */
+  width: 80%; /* Ajustez selon vos besoins */
+  max-width: 900px;
+  height: auto;
+}
+
+/* Bouton de fermeture */
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  z-index: 1001;
+}
+
+.close-btn:hover {
+  color: #000;
+}

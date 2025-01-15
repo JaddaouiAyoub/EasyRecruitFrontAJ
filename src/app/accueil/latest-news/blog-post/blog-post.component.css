@@ -1,0 +1,140 @@
+/* ============================= */
+/* General Styles                */
+/* ============================= */
+.blog-post {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================= */
+/* Blog Post Thumbnail           */
+/* ============================= */
+.blog-post-thumbnail {
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-post-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.blog-post-thumbnail a:hover img {
+  transform: scale(1.05);
+}
+
+.hover-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================= */
+/* Post Info Section             */
+/* ============================= */
+.post-info {
+  padding: 20px;
+}
+
+.post-info a {
+  font-size: 20px;
+  font-weight: bold;
+  color: #003366;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.post-info a:hover {
+  color: #0056b3;
+}
+
+.post-details {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.post-details span {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.post-details i {
+  color: #FFC300;
+  margin-right: 5px;
+}
+
+.post-info p {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* ============================= */
+/* Read More Button              */
+/* ============================= */
+.btn-blue {
+  display: inline-block;
+  background-color: #0096D6;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin: 15px 20px;
+}
+
+.btn-blue:hover {
+  background-color: #0056b3;
+}
+
+.btn-small {
+  padding: 8px 16px;
+  font-size: 12px;
+}
+
+/* ============================= */
+/* Responsive Design             */
+/* ============================= */
+@media (max-width: 768px) {
+  .post-info a {
+    font-size: 18px;
+  }
+
+  .post-details {
+    font-size: 12px;
+  }
+
+  .btn-blue {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-info {
+    padding: 15px;
+  }
+
+  .post-info a {
+    font-size: 16px;
+  }
+
+  .btn-blue {
+    padding: 6px 12px;
+    font-size: 10px;
+  }
+}

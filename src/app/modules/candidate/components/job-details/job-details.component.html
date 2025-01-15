@@ -1,0 +1,118 @@
+<app-navbar/>
+<div class="job-details-page">
+  <!-- Header -->
+  <section class="job-header ptb60">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-xs-12">
+          <h3>{{ job.titre }}</h3>
+<!--          <a href="#" class="btn btn-green btn-small btn-effect mt15">{{ job?.type }}</a>-->
+        </div>
+        <div class="col-md-6 col-xs-12 clearfix">
+          <a href="#" class="btn btn-blue btn-effect pull-right mt15">
+            <i class="fa fa-star"></i> Add to Favorites
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Job Details -->
+  <section class="ptb80" id="job-page">
+    <div class="container">
+      <div class="row">
+        <!-- Job Details Main -->
+        <div class="col-md-8 col-xs-12">
+          <!-- Company Info -->
+          <div class="row company-info">
+            <div class="col-md-3">
+              <div class="job-company">
+                <a href="#">
+                  <img [src]="job.photo" alt="{{ job.recruteurDTO.companyName }}" />
+                </a>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="job-company-info mt30">
+                <h3 class="capitalize">{{ job.recruteurDTO.companyName }}</h3>
+                <ul class="list-inline mt10">
+                  <li><a href="#"><i class="fa fa-link"></i> Website</a></li>
+                  <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
+                  <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job Overview -->
+          <div class="job-details mt40">
+            <h5>Job Overview</h5>
+            <p>{{ job.description }}</p>
+            <h5>Key Requirements</h5><br/>
+            <ul>
+              <li *ngFor="let requirement of (job.keywords?.split(',') || [])">
+                {{ requirement.trim() }}
+              </li>            </ul>
+<!--            <h5>We Offer</h5>-->
+<!--            <ul>-->
+<!--              <li *ngFor="let offer of job?.offers">{{ offer }}</li>-->
+<!--            </ul>-->
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-md-4 col-xs-12">
+          <div class="job-sidebar">
+            <h4 class="uppercase">Share This Job</h4>
+            <ul class="social-btns list-inline">
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+            <ul class="job-overview">
+              <li>
+                <h5><i class="fa fa-calendar"></i> Date Posted:</h5>
+                <span>{{ job.datePublication }}</span>
+              </li>
+              <li>
+                <h5><i class="fa fa-map-marker"></i> Location:</h5>
+                <span>{{ job.location }}</span>
+              </li>
+              <li>
+                <h5><i class="fa fa-money"></i> Salary:</h5>
+                <span>{{ job.salaire }} DH</span>
+              </li>
+            </ul>
+            <button class="btn btn-blue btn-effect" (click)="openApplicationForm(jobId)">Apply for Job</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Jobs -->
+      <div class="row mt80" *ngIf="relatedJobs">
+        <div class="col-md-12">
+          <h2 class="capitalize pb40">Related Jobs</h2>
+          <div class="row">
+            <div class="col-md-4" *ngFor="let relatedJob of relatedJobs">
+              <div class="related-job-item">
+                <div class="job-info">
+                  <div class="col-md-2 col-xs-3 nopadding">
+                    <div class="job-company">
+                      <img [src]="job.photo" alt="{{ job.recruteurDTO.companyName }}" />
+                    </div>
+                  </div>
+                  <span class="company"><i class="fa fa-building"></i>{{ job.recruteurDTO.companyName }}</span>
+                  <span class="location"><i class="fa fa-map-marker"></i>{{ job.location }}</span><br/>
+                  <span class="domain"><i class="fa fa-cogs"></i> Domaine : {{ job.domaine }}</span> <!-- Icône générique pour le domaine -->
+                  <div class="description" title="{{ job.description }}">
+                    {{ job.description }}
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+</div>

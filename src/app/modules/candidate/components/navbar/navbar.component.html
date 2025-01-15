@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg bg-navbar">
+  <div class="container-fluid">
+    <a *ngIf="!connected" class="navbar-brand" routerLink="/candidate/dashboard">Candidate Space</a>
+    <a *ngIf="connected" class="navbar-brand" routerLink="/accueil">Candidate Space</a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto" *ngIf="connected">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/candidate/dashboard" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/candidate/tracking" routerLinkActive="active">Applications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/candidate/profile" routerLinkActive="active">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/candidate/job-listings" routerLinkActive="active">Offers</a>
+        </li>
+        <!--        <li class="nav-item">-->
+        <!--          <a class="nav-link" routerLink="/candidate/readyForInterview" routerLinkActive="active">Interviews</a>-->
+        <!--        </li>-->
+      </ul>
+      <!-- Logout Link -->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a *ngIf="connected" class="nav-link text-danger logout-link" (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+
+        </li>
+      </ul>
+      <a *ngIf="!connected" class="nav-link text-blue logout-link" (click)="login()" style="float: right; cursor: pointer">
+        <i class="fas fa-sign-in-alt"></i> Login
+      </a>
+    </div>
+  </div>
+  <!-- Login Popup -->
+  <div class="login-popup" *ngIf="showLoginPopup">
+    <div class="login-popup-content">
+      <button class="close-btn" (click)="closeLoginPopup()">×</button>
+      <app-login></app-login>
+    </div>
+  </div>
+</nav>

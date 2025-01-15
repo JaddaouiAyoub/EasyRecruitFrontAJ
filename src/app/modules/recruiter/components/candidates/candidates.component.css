@@ -1,0 +1,308 @@
+/* Palette de couleurs */
+:root {
+  --blue-light: #ADD8E6; /* Bleu clair */
+  --blue: #0096D6;       /* Bleu principal */
+  --blue-dark: #003366;  /* Bleu foncé */
+  --orange: #FFC300;     /* Jaune */
+  --red: #FF5733;        /* Rouge */
+  --white: #ffffff;      /* Blanc */
+  --grey-light: #f9f9f9; /* Gris clair */
+  --grey: #ddd;          /* Gris */
+  --black: #333;         /* Noir */
+}
+
+/* Sidebar fixée */
+.fixed-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: var(--blue-light);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  border-radius: 10px; /* Arrondir les coins de la sidebar */
+}
+
+/* Conteneur principal */
+.container {
+  padding: 25px;
+  margin-left: 250px;
+  max-width: 1500px;
+  padding-left: 50px;
+  background: var(--white);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Titre */
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--blue); /* Titre en bleu */
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px solid var(--blue); /* Souligner le titre avec une ligne bleue */
+  padding-bottom: 10px;
+}
+
+/* Barre de filtre */
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background: var(--grey-light);
+  border: 1px solid var(--grey);
+  border-radius: 10px; /* Arrondir les coins de la barre de filtre */
+}
+
+.filter label {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--blue-dark);
+  margin-right: 10px;
+}
+
+.filter select {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid var(--blue);
+  border-radius: 4px;
+  background: var(--white);
+  transition: all 0.3s ease;
+}
+
+.filter select:focus {
+  outline: none;
+  border-color: var(--blue-dark);
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+/* Tableau */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th, table td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid var(--grey);
+}
+
+table th {
+  background-color: var(--blue-light);
+  font-weight: bold;
+  color: var(--blue-dark);
+}
+
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Boutons */
+.btn {
+  padding: 6px 14px; /* Boutons plus petits */
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px; /* Bordures arrondies */
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Bouton bleu (Inviter) */
+.btn-blue {
+  background-color: var(--blue); /* Bleu principal */
+  color: var(--white);
+}
+
+.btn-danger {
+  background-color: var(--red);
+  color: var(--white);
+  border-radius: 25px; /* Bordures arrondies */
+}
+
+/* Icone bouton */
+.btn-icon {
+  background: none;
+  border: none;
+  color: var(--blue);
+  font-size: 16px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+/* Détails du candidat */
+.details-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--white);
+  border-radius: 12px; /* Coins plus arrondis pour le popup */
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre plus douce */
+  z-index: 1050;
+  max-width: 500px;
+  width: 90%;
+  font-family: 'Arial', sans-serif;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1); /* Overlay plus clair */
+  z-index: 1040;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--blue-dark);
+  cursor: pointer;
+}
+
+.details-popup .profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.details-popup .info p {
+  margin: 8px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--blue-dark);
+}
+
+/* Aucun élément trouvé */
+.no-data {
+  text-align: center;
+  font-size: 16px;
+  color: var(--grey);
+  margin-top: 20px;
+}
+
+/* Réactivité */
+@media (max-width: 768px) {
+  .container {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .fixed-sidebar {
+    display: none;
+  }
+
+  .details-popup {
+    width: 90%;
+  }
+}
+.report-iframe-container {
+  margin-top: 20px;
+  border: 2px solid #ddd;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+iframe {
+  border: none;
+  border-radius: 8px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+}
+.report-iframe-container {
+  position: relative;
+}
+.pdf-link i, .pdf-link mat-icon {
+  font-size: 34px; /* Ajuster la taille */
+  vertical-align: center;
+}
+/* Flouter l'arrière-plan */
+body.modal-open {
+  overflow: hidden; /* Empêche le défilement */
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Couleur semi-transparente pour le fond */
+  backdrop-filter: blur(8px); /* Applique l'effet de flou */
+  z-index: 999; /* Place derrière la fenêtre modale */
+}
+
+/* Conteneur de l'iframe */
+.report-iframe-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  border-radius: 8px;
+  z-index: 1000; /* Place devant le fond flou */
+  width: 80%; /* Ajustez selon vos besoins */
+  max-width: 900px;
+  height: auto;
+}
+
+/* Bouton de fermeture */
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  z-index: 1001;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+/* Colonne des actions */
+table th:last-child,
+table td:last-child {
+  width: 150px; /* Ajuster la largeur de la colonne des actions */
+  white-space: nowrap; /* Empêche le retour à la ligne */
+}
+
+/* Boutons dans la colonne des actions */
+table td:last-child .btn {
+  margin: 0 5px; /* Espacement horizontal entre les boutons */
+  display: inline-block; /* Afficher les boutons côte à côte */
+}

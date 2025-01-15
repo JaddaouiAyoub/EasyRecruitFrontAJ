@@ -1,0 +1,95 @@
+<div class="container">
+  <app-sidebar class="fixed-sidebar"></app-sidebar>
+
+  <h2 class="title">Application List</h2>
+
+  <div class="filter">
+    <label for="offer-select">Select an Offer:</label>
+    <select id="offer-select" [(ngModel)]="selectedOffer" (change)="filterByOffer()">
+      <option value="">All Offers</option>
+      <option *ngFor="let offre of offres | keyvalue" [value]="offre.value.id">{{ offre.value.titre }}</option>
+    </select>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Offer</th>
+      <th>CV</th>
+      <th>Score</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let candidature of filteredCandidatures" (click)="toggleDetails(candidature)">
+      <td>
+        <img
+          *ngIf="candidature.candidatDTO?.profilPic"
+          [src]="candidature.candidatDTO?.profilPic"
+          alt="{{ candidature.candidatDTO?.firstName }} {{ candidature.candidatDTO?.lastName }}"
+          class="profile-img"
+        />
+        <img
+          *ngIf="!candidature.candidatDTO?.profilPic"
+          src="assets/images/default-profile.jpg"
+          alt="Default Profile"
+          class="profile-img"
+        />
+      </td>
+      <td>{{ candidature.candidatDTO?.firstName }} {{ candidature.candidatDTO?.lastName }}</td>
+      <td>{{ candidature.candidatDTO?.email }}</td>
+      <td>{{ candidature.offreStageDTO?.titre }}</td>
+      <td>
+        <a (click)="showReport(candidature.cv); $event.stopPropagation()" class="pdf-link">
+          <i class="fas fa-file-pdf text-danger"></i>
+        </a>
+      </td>
+      <td>{{ candidature.scoreInitial || 'N/A' }}</td>
+
+      <td>{{ candidature.etat }}</td>
+      <td>
+        <button class="btn btn-blue" *ngIf="(candidature.etat==etat)"  (click)="inviteCandidat(candidature); $event.stopPropagation()">Invite</button>
+        <button class="btn btn-danger" (click)="confirmRejectCandidat(candidature); $event.stopPropagation()">Reject</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+
+
+  <div *ngIf="selectedCandidature" class="details-popup">
+    <div class="popup-overlay" (click)="closeDetails()"></div>
+    <div class="details-content">
+      <button class="close-btn" (click)="closeDetails()">&times;</button>
+      <h3>Candidate Details</h3>
+      <div class="profile">
+        <img [src]="selectedCandidature.candidatDTO?.profilPic || 'assets/images/default-profile.jpg'" class="profile-img"  alt="profile"/>
+      </div>
+      <div class="info">
+        <p><strong>Full Name:</strong> {{ selectedCandidature.candidatDTO?.lastName }} {{ selectedCandidature.candidatDTO?.firstName }}</p>
+        <p><strong>Email:</strong> {{ selectedCandidature.candidatDTO?.email }}</p>
+        <p><strong>LinkedIn:</strong> <a [href]="selectedCandidature.candidatDTO?.linkedin" target="_blank">{{ selectedCandidature.candidatDTO?.linkedin || 'Not Available' }}</a></p>
+        <p><strong>Offer:</strong> {{ selectedCandidature.offreStageDTO?.titre || 'Not Specified' }}</p>
+        <p><strong>Score:</strong> {{ selectedCandidature.scoreInitial || 'Not Specified' }}</p>
+        <p><strong>Application Status:</strong> {{ selectedCandidature.etat || 'Not Specified' }}</p>
+
+      </div>
+    </div>
+  </div>
+<!--  <iframe [src]="pdfUrl" width="100%" height="500px"></iframe>-->
+
+  <div *ngIf="showIframe" class="modal-backdrop"></div>
+  <div *ngIf="showIframe" class="report-iframe-container">    <!-- Close button (X) -->
+    <button class="close-btn" (click)="hideReport()">×</button>
+
+    <iframe [src]="pdfUrl" width="100%" height="600px"></iframe>
+  </div>
+
+  <div *ngIf="filteredCandidatures.length === 0" class="no-data">
+    <p>No applications found.</p>
+  </div>
+</div>

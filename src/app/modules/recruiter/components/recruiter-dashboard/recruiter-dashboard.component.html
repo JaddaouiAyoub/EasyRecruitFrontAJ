@@ -1,0 +1,60 @@
+<section class="recruiter-dashboard">
+  <app-sidebar class="fixed-sidebar"></app-sidebar>
+  <div class="container">
+    <!-- Metrics Section -->
+    <div class="dashboard-metrics">
+      <div class="metric-card">
+        <h3>Job Offers</h3>
+        <p class="metric-value">{{ jobOffers }} Active Offers</p>
+      </div>
+      <div class="metric-card">
+        <h3>Candidates</h3>
+        <p class="metric-value">{{ candidates }} Total Candidates</p>
+      </div>
+      <div class="metric-card">
+        <h3>Interviews Scheduled</h3>
+        <p class="metric-value">{{ interviews }} This Week</p>
+      </div>
+    </div>
+
+    <!-- Chart Section -->
+    <div class="charts-section">
+      <!-- Bar Chart -->
+      <div class="chart-card">
+        <h3>Applications Per Day</h3>
+        <div class="chart-placeholder bar-chart">
+          <div class="bar" style="height: 20%;" title="Yesterday: 20%"></div>
+          <div class="bar" style="height: 10%;" title="Today: 10%"></div>
+          <div class="bar" style="height: 0%;" title="March: 90%"></div>
+          <div class="bar" style="height: 0%;" title="April: 60%"></div>
+          <div class="bar" style="height: 0%;" title="May: 80%"></div>
+        </div>
+      </div>
+
+
+      <div class="chart-card">
+        <h3>Job Offers by Category</h3>
+        <!-- Le pie chart utilise maintenant un seul div avec le gradient -->
+        <div class="pie-chart" [style.background]="generateFullPieChart()"></div>
+
+        <!-- Legend -->
+        <div class="legend">
+          <div *ngFor="let label of jobCategoryLabels; let i = index" class="legend-item">
+            <div class="legend-color" [style.background-color]="jobCategoryData.datasets[0].backgroundColor[i]"></div>
+            <span class="legend-text">{{ label }} - {{ jobCategoryData.datasets[0].data[i] }}%</span>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- Recent Activity Section -->
+    <div class="recent-activity">
+      <h3>Recent Activity</h3>
+      <ul>
+        <li *ngFor="let activity of recentActivities">{{ activity }}</li>
+      </ul>
+    </div>
+  </div>
+</section>

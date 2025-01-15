@@ -1,0 +1,89 @@
+<section class="offer-page">
+  <!-- Sidebar fixe -->
+  <app-sidebar class="fixed-sidebar"></app-sidebar>
+
+  <!-- Contenu principal -->
+  <div class="container">
+    <!-- Section des Offres -->
+    <div class="row">
+      <div
+        *ngFor="let offre of offres"
+        class="col-md-3 col-sm-6 col-xs-12 offer-card"
+        (click)="onOfferClick(offre)"
+      >
+        <div class="card">
+          <!-- Image de l'offre -->
+          <img
+            *ngIf="offre.photo"
+            [src]="offre.photo"
+            alt="{{ offre.titre }}"
+            class="card-img-top"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ offre.titre }}</h5>
+            <p class="card-text">
+              <i class="fa fa-map-marker"></i> {{ offre.location }}
+            </p>
+            <p class="card-text">
+              <i class="fa fa-money"></i> {{ offre.salaire }} DH
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Liste des Candidatures -->
+    <div *ngIf="selectedOffer" class="popup">
+      <div class="popup-content">
+        <span class="close-btn" (click)="closePopup()">&times;</span>
+        <h3>Candidatures pour "{{ selectedOffer.titre }}"</h3>
+
+
+
+        <div *ngIf="candidatures.length > 0; else noCandidatures" class="candidature-list">
+          <div *ngFor="let candidature of candidatures" class="candidate-card">
+            <!-- Carte du candidat -->
+            <div class="card-row">
+              <!-- Image à gauche -->
+              <img
+                *ngIf="candidature.candidatDTO?.profilPic"
+                [src]="candidature.candidatDTO?.profilPic"
+                alt="{{ candidature.candidatDTO?.username }}"
+                class="card-img-left"
+              />
+              <img
+                *ngIf="!candidature.candidatDTO?.profilPic"
+                src="assets/images/default-profile.jpg"
+                alt="Default profile"
+                class="card-img-left"
+              />
+
+              <!-- Informations à droite -->
+              <div class="card-info">
+                <p class="card-text">
+                  {{ candidature.candidatDTO?.firstName + " " + candidature.candidatDTO?.lastName  || 'Non disponible' }}
+                </p>
+                <a
+                  [href]="candidature.cv"
+                  class="btn btn-blue"
+                  target="_blank"
+                >
+                  Voir le CV
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Message si aucune candidature -->
+        <ng-template #noCandidatures>
+          <p class="text-center">Aucune candidature pour cette offre.</p>
+        </ng-template>
+      </div>
+    </div>
+
+
+  </div>
+</section>

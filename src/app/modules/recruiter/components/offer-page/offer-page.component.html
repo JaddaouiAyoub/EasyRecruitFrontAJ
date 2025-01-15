@@ -1,0 +1,77 @@
+<section class="ptb80" id="job-page">
+  <app-sidebar class="fixed-sidebar"></app-sidebar>
+  <div class="container">
+    <!-- Job Details Section -->
+    <div class="row" *ngIf="offer">
+      <div class="col-md-8 col-xs-12">
+        <!-- Company Info Section -->
+        <div class="row company-info">
+          <div class="col-md-3">
+            <img [src]="offer.recruteurDTO.profilPic" alt="Profile Photo" class="img-fluid">
+          </div>
+          <div class="col-md-9">
+            <div class="job-company-info mt30">
+              <h3 class="capitalize" style="font-size: x-large">{{ offer.titre }}</h3>
+              <h3 class="capitalize" style="font-size: small">{{ offer.recruteurDTO.username }}</h3>
+              <ul class="list-inline mt10">
+                <li class="btn btn-green btn-small btn-effect">{{ offer.domaine }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job Description Section -->
+        <div class="row job-details mt30">
+          <div class="col-md-12 col-xs-12">
+            <!-- Image -->
+            <div *ngIf="offer.photo">
+              <img [src]="offer.photo" class="img-fluid mt40" >
+            </div>
+            <div class="mt20"></div>
+            <!-- Job Description Title -->
+            <h5 class="mt90 font-weight-bold" style="font-size: medium;">Description de l'offre</h5>
+
+            <!-- Job Description Text -->
+            <p class="mt20" style="font-size: small;">{{ offer.description }}</p>
+          </div>
+        </div>
+
+        <!-- Boutons Modifier et Supprimer -->
+        <div class="mt30">
+          <!-- Buttons for Modify/Delete -->
+          <button class="btn btn-primary" (click)="editOffer()" *ngIf="offer.recruteurDTO.id == userId">Modifier</button>
+          <button class="btn btn-danger" (click)="confirmDelete()" *ngIf="offer.recruteurDTO.id == userId">Supprimer</button>
+        </div>
+      </div>
+
+      <!-- Job Sidebar Section -->
+      <div class="col-md-4 col-xs-12">
+        <div class="job-sidebar">
+          <ul class="job-overview nopadding mt40">
+            <li>
+              <h5><i class="fa fa-calendar"></i> Date Publication:</h5>
+              <span>{{ offer.datePublication }}</span>
+            </li>
+            <li>
+              <h5><i class="fa fa-map-marker"></i> Localisation:</h5>
+              <span>{{ offer.location }}</span>
+            </li>
+            <li *ngIf="offer.salaire">
+              <h5><i class="fas fa-money-bill-alt"></i>Salaire:</h5>
+              <span>{{ offer.salaire }} DH</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal de confirmation de suppression -->
+<div *ngIf="isDeleteConfirmationVisible" class="delete-confirmation-modal">
+  <div class="modal-content">
+    <p>Êtes-vous sûr de vouloir supprimer cette offre ?</p>
+    <button class="btn btn-danger" (click)="deleteOffer()">Oui, supprimer</button>
+    <button class="btn btn-dark" (click)="cancelDelete()">Annuler</button>
+  </div>
+</div>

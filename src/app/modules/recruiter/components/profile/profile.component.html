@@ -1,0 +1,163 @@
+<!-- ===== Start of Recruiter Profile Section ===== -->
+<section class="ptb80" id="recruiter-profile">
+  <app-sidebar class="fixed-sidebar"></app-sidebar>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        <!-- Profile Header -->
+        <div class="profile-header text-center">
+          <h2>{{userData.firstName}} Profile</h2>
+          <p>View and manage your profile information</p>
+        </div>
+
+        <!-- Profile Content -->
+        <div class="profile-content ptb60">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+
+              <!-- Profile Photo -->
+              <div class="form-group text-center">
+                <img
+                  [src]="userData.profilPic"
+                  alt="Profile Photo"
+                  class="img-thumbnail"
+                  width="150"
+                />
+              </div>
+
+              <!-- Form Groups for Profile Information -->
+              <div class="form-group">
+                <label>Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="userData.username"
+                  [readonly]="!isEditing"
+                />
+              </div>
+              <div class="form-group">
+                <label>First Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="userData.firstName"
+                  [readonly]="!isEditing"
+                />
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="userData.lastName"
+                  [readonly]="!isEditing"
+                />
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  [(ngModel)]="userData.email"
+                  [readonly]="!isEditing"
+                />
+              </div>
+              <div class="form-group">
+                <label>Company Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="userData.companyName"
+                  [readonly]="!isEditing"
+                />
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="userData.phoneNumber"
+                  [readonly]="!isEditing"
+                />
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="form-group text-center">
+                <div *ngIf="!isEditing">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    (click)="onEditProfile()"
+                  >
+                    Edit Profile
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-info"
+                    (click)="onShowMyOffers()"
+                  >
+                    Mes Offres
+                  </button>
+                </div>
+
+                <div *ngIf="isEditing">
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    (click)="onSaveProfile()"
+                  >
+                    Save Changes
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    (click)="onCancelEdit()"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modale des offres -->
+  <div class="modal" [ngClass]="{'show': showMyOffers}" id="myOffersModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- En-tête de la modale -->
+        <div class="modal-header">
+          <h4 class="modal-title">Mes Offres</h4>
+          <button type="button" class="close" (click)="onCloseOffersModal()">&times;</button>
+        </div>
+
+        <!-- Contenu de la modale -->
+        <div class="modal-body">
+          <div *ngIf="myOffers.length > 0; else noOffers">
+            <div *ngFor="let offre of myOffers" class="offer-item">
+              <a [routerLink]="'/recruiter/offer/' + offre.id">
+                <h5>{{ offre.titre }}</h5>
+              </a>
+            </div>
+          </div>
+          <ng-template #noOffers>
+            <p>Aucune offre trouvée.</p>
+          </ng-template>
+        </div>
+
+        <!-- Pied de la modale -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="onCloseOffersModal()">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- ===== End of Recruiter Profile Section ===== -->

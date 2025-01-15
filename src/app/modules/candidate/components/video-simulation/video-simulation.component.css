@@ -1,0 +1,186 @@
+/* General Section Styles */
+section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+section h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #003366;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+section p {
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Video Styles */
+video {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 20px auto;
+  border: 2px solid #0096D6;
+  border-radius: 10px;
+  background-color: #000;
+}
+
+/* Timer Styles */
+.timer {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FF5733;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Question and Buttons Styles */
+.question-container h3 {
+  font-size: 20px;
+  color: #003366;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #0096D6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Custom Button Styles */
+.btn-start {
+  background-color: #28a745;
+}
+
+.btn-start:hover {
+  background-color: #218838;
+}
+
+.btn-stop {
+  background-color: #FF5733;
+}
+
+.btn-stop:hover {
+  background-color: #C70039;
+}
+
+/* Finished State */
+.is-finished h3 {
+  font-size: 22px;
+  color: #28a745;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.is-finished p {
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+}
+
+/* Error Message */
+.error-message {
+  color: #FF0000;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  section {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  video {
+    width: 100%;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+.processing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.processing-container h3 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.processing-container p {
+  color: #555;
+  font-size: 1rem;
+  max-width: 400px;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

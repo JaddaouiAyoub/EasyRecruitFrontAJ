@@ -1,0 +1,41 @@
+<section class="ptb80" id="job-post">
+  <div class="row">
+    <!-- Liste des offres d'emploi -->
+    <div class="col-md-8 col-sm-12 col-xs-12 job-post-main">
+      <h2 class="capitalize"><i class="fa fa-briefcase"></i> Latest Jobs</h2>
+
+      <div class="job-post-wrapper mt60">
+        <!-- Composant pour chaque offre -->
+        <app-single-job-post
+          *ngFor="let job of jobs"
+          [job]="job">
+        </app-single-job-post>
+
+        <!-- Indicateur de chargement -->
+        <div *ngIf="isLoading" class="loading-spinner">
+          <i class="fa fa-spinner fa-spin"></i> Loading...
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <ul class="pagination list-inline text-center" *ngIf="totalPages > 1">
+        <li [class.disabled]="currentPage === 0">
+          <a href="javascript:void(0)" (click)="changePage(currentPage - 1)">Previous</a>
+        </li>
+        <li
+          *ngFor="let page of [].constructor(totalPages); let i = index"
+          [class.active]="currentPage === i">
+          <a href="javascript:void(0)" (click)="changePage(i)">{{ i + 1 }}</a>
+        </li>
+        <li [class.disabled]="currentPage === totalPages - 1">
+          <a href="javascript:void(0)" (click)="changePage(currentPage + 1)">Next</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-md-4 col-xs-12 job-post-sidebar">
+      <app-job-sidebar></app-job-sidebar>
+    </div>
+  </div>
+</section>

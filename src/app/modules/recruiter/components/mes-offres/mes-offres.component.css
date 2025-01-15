@@ -1,0 +1,183 @@
+/* Sidebar fixée */
+.fixed-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: #f4f4f4;
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+/* Conteneur principal avec décalage pour la sidebar */
+.container {
+  padding-top: 25px;
+  padding-right: 25px;
+  margin-left: 300px; /* Décalage égal à la largeur de la sidebar */
+  background-color: white; /* Couleur douce de la palette */
+}
+
+/* Cartes des offres */
+.offer-card {
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.offer-card .card {
+  border: 1px solid #0096D6; /* Couleur vive de la palette */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.offer-card .card:hover {
+  transform: scale(1.05);
+  border-color: #FFC300; /* Accent de la palette */
+}
+
+.card-img-top {
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #003366; /* Couleur principale */
+}
+
+.card-text {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Section des candidatures */
+.candidate-section {
+  margin-top: 50px;
+}
+
+/* Cartes des candidats */
+.candidate-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  border: 1px solid #0096D6; /* Couleur vive */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.candidate-card:hover {
+  border-color: #FF5733; /* Accent de la palette */
+}
+
+/* Image à gauche */
+.card-img-left {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 20px;
+  border: 2px solid #FFC300; /* Accent de la palette */
+}
+
+/* Informations à droite */
+.card-info {
+  flex: 1;
+}
+
+.card-info h5 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #003366; /* Couleur principale */
+}
+
+.card-info p {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+}
+
+.card-info .btn-blue {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #0096D6; /* Couleur vive */
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.card-info .btn-blue:hover {
+  background-color: #003366; /* Couleur principale */
+}
+
+/* Score à droite */
+.card-score {
+  font-size: 16px;
+  font-weight: bold;
+  color: #FFC300; /* Accent de la palette */
+  margin-left: 20px;
+  text-align: left;
+  min-width: 80px;
+}
+
+/* Conteneur de la liste des candidatures */
+.candidature-list {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 10px 0;
+}
+
+/* Pop-up des candidatures */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 800px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #FF5733; /* Accent de la palette */
+}
+
+/* Titre du pop-up */
+.popup-content h3 {
+  margin-bottom: 20px;
+  color: #003366;
+  font-size: 24px;
+  font-weight: bold;
+}

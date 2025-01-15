@@ -1,0 +1,37 @@
+<div class="single-job-post row nomargin">
+  <!-- Company Logo -->
+  <div class="col-md-2 col-xs-3 nopadding">
+    <div class="job-company">
+      <a [routerLink]="['/job-details', job?.id]">
+        <img [src]="job?.photo || 'assets/images/default-logo.png'" alt="Company Logo">
+      </a>
+    </div>
+  </div>
+
+  <!-- Job Information -->
+  <div class="col-md-8 col-xs-6 ptb20">
+    <div class="job-title">
+      <a [routerLink]="['/job-details', job?.id]" title="View Details for {{ job?.titre }}">{{ job?.titre || 'Job Title Not Available' }}</a>
+    </div>
+    <div class="job-info">
+      <span class="company">
+        <i class="fa fa-building-o"></i> {{ job?.recruteurDTO?.companyName || 'Company Name Not Available' }}
+      </span>
+      <span class="location">
+        <i class="fa fa-map-marker"></i> {{ job?.location || 'Location Not Specified' }}
+      </span>
+    </div>
+  </div>
+
+  <!-- Job Category -->
+  <div class="col-md-2 col-xs-3 ptb30">
+    <div class="job-category">
+      <a [routerLink]="['/job-details', job?.id]"
+         class="btn btn-small btn-effect"
+         [ngClass]="job?.domaine || 'default-category'"
+         title="Job Category: {{ job?.domaine || 'Not Specified' }}">
+        {{ job?.domaine || 'Uncategorized' }}
+      </a>
+    </div>
+  </div>
+</div>

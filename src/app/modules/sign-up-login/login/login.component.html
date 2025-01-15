@@ -1,0 +1,57 @@
+<section class="ptb80" id="login">
+      <!-- Start of Login Box -->
+      <div class="login-box">
+
+        <div class="login-title">
+          <h4>Login to </h4>
+        </div>
+        <img src="assets/images/ERLOGOBLEU.png" alt="EasyRecruit Logo">
+        <!-- Message d'erreur -->
+        <div *ngIf="errorMessage" class="alert alert-danger text-center">
+          {{ errorMessage }}
+        </div>
+
+        <!-- Start of Login Form -->
+        <form (submit)="login()">
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>UserName</label>
+            <input type="email" class="form-control" placeholder="Your UserName" [(ngModel)]="email" name="email">
+          </div>
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" placeholder="Your Password" [(ngModel)]="password" name="password">
+          </div>
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-6">
+                <input type="checkbox" id="remember-me2">
+                <label for="remember-me2">Remember me?</label>
+              </div>
+              <div class="col-xs-6 text-right">
+                <a routerLink="/forgot-password">Forgot password?</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Group -->
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-effect">
+              <span *ngIf="!isLoading">Login</span>
+              <div class="spinner-border" role="status" *ngIf="isLoading">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </button>
+
+            <a routerLink="/signup" class="btn btn-effect">Sign Up</a>
+          </div>
+        </form>
+        <!-- End of Login Form -->
+      </div>
+      <!-- End of Login Box -->
+
+</section>

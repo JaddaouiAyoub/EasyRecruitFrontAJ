@@ -1,0 +1,138 @@
+/* Navbar Styles */
+.bg-navbar {
+  background-color: #003366;
+  padding: 10px 20px; /* Add spacing around the navbar */
+}
+
+.navbar-brand {
+  color: #FFC300 !important;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.nav-link {
+  color: #ADD8E6 !important;
+  font-weight: 500;
+  margin-right: 20px;
+  font-size: 14px;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid #FFC300;
+  padding-bottom: 5px;
+}
+
+.nav-link.text-danger {
+  color: #FF5733 !important;
+  font-weight: bold;
+}
+
+/* Logout Link */
+.logout-link {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.logout-link i {
+  margin-right: 5px; /* Space between icon and text */
+  font-size: 14px;
+}
+
+/* Navbar Alignment */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav.ms-auto {
+  margin-left: auto;
+  justify-content: flex-end; /* Push logout to the far right */
+}
+
+/* Section Title */
+.section-title {
+  color: #003366;
+  font-size: 24px;
+  text-align: center;
+  margin-top:60px;
+}
+
+/* Loading and Empty States */
+.loading {
+  color: #0096D6;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.empty {
+  color: #FF5733;
+  text-align: center;
+  font-size: 16px;
+  font-style: italic;
+}
+
+/* Applications List */
+.applications-list {
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+.application-card {
+  border: 1px solid #ADD8E6;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.application-card .job-title h3 {
+  color: #003366;
+  font-size: 18px;
+  margin: 0 0 10px 0;
+}
+
+.application-card .company-location p {
+  color: #0096D6;
+  font-size: 14px;
+  margin: 0 0 10px 0;
+}
+
+.application-card .status-tag {
+  font-weight: bold;
+  color: white;
+  background-color: #FFC300; /* Default yellow status color */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+/* Button Styling */
+.btn-update {
+  background-color: #FFC300;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left:750px;
+}
+
+.btn-update:hover {
+  background-color: #FF5733;
+}
+
+/* Responsive Design for Applications List */
+@media (max-width: 768px) {
+  .applications-list {
+    padding: 10px;
+  }
+
+  .application-card {
+    padding: 10px;
+  }
+}

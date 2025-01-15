@@ -1,0 +1,93 @@
+<div class="container">
+  <app-sidebar class="fixed-sidebar"></app-sidebar>
+
+  <h2 class="title">Interviews List</h2>
+
+  <div class="filter">
+    <label for="offer-select">Select an Offer:</label>
+    <select id="offer-select" [(ngModel)]="selectedOffer" (change)="filterByOffer()">
+      <option value="">All Offers</option>
+      <option *ngFor="let offre of offres | keyvalue" [value]="offre.value.id">{{ offre.value.titre }}</option>
+    </select>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Offer</th>
+      <th>Final Score</th>
+      <th>Status</th>
+      <th>Report</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let candidature of filteredCandidatures" (click)="toggleDetails(candidature)">
+      <!-- Profile Picture -->
+      <td>
+        <img
+          *ngIf="candidature.candidatDTO?.profilPic"
+          [src]="candidature.candidatDTO?.profilPic"
+          alt="{{ candidature.candidatDTO?.firstName }} {{ candidature.candidatDTO?.lastName }}"
+          class="profile-img"
+        />
+        <img
+          *ngIf="!candidature.candidatDTO?.profilPic"
+          src="assets/images/default-profile.jpg"
+          alt="Default Profile"
+          class="profile-img"
+        />
+      </td>
+      <!-- Details -->
+      <td>{{ candidature.candidatDTO?.firstName }} {{ candidature.candidatDTO?.lastName }}</td>
+      <td>{{ candidature.offreStageDTO?.titre }}</td>
+      <td>{{ candidature.scoreFinal || 'N/A' }}</td>
+      <td>{{ candidature.etat }}</td>
+      <td>
+        <a *ngIf="candidature.etat==etat" (click)="showReport(candidature.rapport); $event.stopPropagation()" class="pdf-link">
+          <i class="fas fa-file-pdf text-danger"></i>
+        </a>
+        <span *ngIf="!(candidature.etat==etat)">N/A</span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Report iframe -->
+  <div *ngIf="showIframe" class="modal-backdrop"></div>
+  <div *ngIf="showIframe" class="report-iframe-container">
+    <!-- Bouton de fermeture -->
+    <button class="close-btn" (click)="hideReport()">×</button>
+
+    <!-- Iframe -->
+    <iframe [src]="pdfUrl" width="100%" height="600px"></iframe>
+  </div>
+
+
+
+  <!-- Candidate Details Popup -->
+  <div *ngIf="selectedCandidature" class="popup-overlay">
+    <div class="btn" (click)="closeDetails()"></div>
+    <div class="details">
+      <button class="close-btn" (click)="closeDetails()">&times;</button>
+      <h3>Candidate Details</h3>
+      <div class="profile">
+        <img [src]="selectedCandidature.candidatDTO?.profilPic || 'assets/images/default-profile.jpg'" class="profile-img" alt="profile" />
+      </div>
+      <div class="info">
+        <p><strong>Full Name:</strong> {{ selectedCandidature.candidatDTO?.lastName }} {{ selectedCandidature.candidatDTO?.firstName }}</p>
+        <p><strong>Email:</strong> {{ selectedCandidature.candidatDTO?.email }}</p>
+        <p><strong>LinkedIn:</strong> <a [href]="selectedCandidature.candidatDTO?.linkedin" target="_blank">{{ selectedCandidature.candidatDTO?.linkedin || 'Not Available' }}</a></p>
+        <p><strong>CV:</strong> <a [href]="selectedCandidature.cv" target="_blank">{{ selectedCandidature.cv || 'Not Available' }}</a></p>
+        <p><strong>Offer:</strong> {{ selectedCandidature.offreStageDTO?.titre || 'Not Specified' }}</p>
+        <p><strong>Score:</strong> {{ selectedCandidature.scoreFinal || 'Not Specified' }}</p>
+        <p><strong>Status:</strong> {{ selectedCandidature.etat || 'Not Specified' }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="filteredCandidatures.length === 0" class="no-data">
+    <p>No applications found.</p>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<app-navbar/>
+
+<h2 class="section-title">My Applications</h2>
+
+<div *ngIf="isLoading" class="loading">Loading...</div>
+<div *ngIf="!isLoading && candidatures.length === 0" class="empty">
+  You have no applications in progress.
+</div>
+
+<div *ngIf="!isLoading && candidatures.length > 0" class="applications-list">
+  <div class="application-card" *ngFor="let candidature of candidatures">
+    <div class="application-info">
+      <div class="job-title"><h3>{{ candidature?.offreStageDTO?.titre }}</h3></div>
+      <div class="company-location">
+        <p>{{ candidature.offreStageDTO?.location }} - {{ candidature.offreStageDTO?.location }}</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn-update" (click)="viewOfferDetails(candidature.offreStageDTO?.id)">View Offer</button>
+    </div>
+  </div>
+</div>

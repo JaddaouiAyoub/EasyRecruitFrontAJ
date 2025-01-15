@@ -1,0 +1,127 @@
+/* Sidebar fixée */
+.fixed-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: var(--color-teal-blue); /* Utiliser le bleu principal */
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+
+app-sidebar {
+  flex-shrink: 0; /* Assure que le sidebar conserve sa taille */
+}
+.company-info img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px; /* Rounded corners for image */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.job-details img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  backdrop-filter: blur(8px); /* Blur effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 90%; /* Augmenter la largeur du modal */
+  width: 900px; /* Largeur fixe pour une meilleure vue */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce autour du modal */
+  overflow-y: auto; /* Ajout de défilement si nécessaire */
+}
+
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333; /* Couleur de l'icône de fermeture */
+}
+
+.list-group-item {
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Ombre douce pour les éléments de la liste */
+}
+
+.list-group-item:hover {
+  background-color: #f1f1f1; /* Légère couleur au survol */
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.img-thumbnail {
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+button.btn-success {
+  margin-top: 10px;
+}
+
+.score-box {
+  padding: 20px 20px;
+  font-size: medium;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  min-width: 50px;
+  position: fixed;
+  right: 400px; /* Espace de 10px à droite */
+}
+.delete-confirmation-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.delete-confirmation-modal .modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+}
+
+.delete-confirmation-modal button {
+  margin-top: 10px;
+}
+

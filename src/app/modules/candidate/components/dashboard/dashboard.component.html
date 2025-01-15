@@ -1,0 +1,77 @@
+<section class="dashboard-container">
+  <!-- Navbar -->
+  <app-navbar/>
+  <!-- Dashboard Content -->
+  <div class="dashboard-grid" *ngIf="!isLoading && !isError">
+    <!-- Statistics -->
+    <section class="dashboard-section">
+      <h2>Statistics</h2>
+      <table class="stats-table">
+        <thead>
+        <tr>
+          <th>Type</th>
+          <th>Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Viewed offers</td>
+          <td>{{ stats.totalOffres || 0 }}</td>
+        </tr>
+        <tr>
+          <td>Applications sent</td>
+          <td>{{ stats.totalCandidatures || 0 }}</td>
+        </tr>
+        <tr>
+          <td>Responses received</td>
+          <td>{{ stats.totalReponses || 0 }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Recent Activities -->
+    <section class="dashboard-section">
+      <h2>Recent Activities</h2>
+      <ul class="activities-list">
+        <li *ngIf="recentActivities.length === 0">No recent activities.</li>
+        <li *ngFor="let activity of recentActivities; trackBy: trackById">
+          <p>{{ activity.message }}</p>
+          <a [routerLink]="activity.link">View more</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Notifications -->
+    <section class="dashboard-section">
+      <h2>Notifications</h2>
+      <ul class="notifications-list">
+        <li *ngIf="notifications.length === 0">No notifications available.</li>
+        <li *ngFor="let notification of notifications; trackBy: trackById">
+          <p>{{ notification.message }}</p>
+          <a [routerLink]="notification.link">View more</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Video Simulations -->
+    <section class="dashboard-section">
+      <h2>Video Simulations</h2>
+      <div *ngIf="candidatures.length === 0">
+        <p>No simulations available at the moment.</p>
+      </div>
+      <div class="video-simulation" *ngFor="let simulation of candidatures; trackBy: trackById">
+        <p>{{ simulation.offreTitre }}</p>
+        <button class="btn-simulation" (click)="startSimulation(simulation.candidatureId,simulation.offreId)">Start</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Error Handling -->
+  <div *ngIf="isError" class="error-container">
+    <p>Error loading data. Please try again later.</p>
+  </div>
+  <div *ngIf="isLoading" class="loading-container">
+    <p>Loading...</p>
+  </div>
+</section>

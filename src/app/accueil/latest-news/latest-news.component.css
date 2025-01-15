@@ -1,0 +1,154 @@
+/* ============================= */
+/* Section Styles                */
+/* ============================= */
+#latest-news {
+  background-color: #003049; /* Darker Blue */
+  padding: 80px 20px;
+}
+
+#latest-news .section-title {
+  margin-bottom: 40px;
+}
+
+#latest-news .section-title h2 {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #f4a261; /* Orange */
+  text-transform: uppercase;
+  position: relative;
+}
+
+#latest-news .section-title h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #e76f51; /* Dark Orange */
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ============================= */
+/* Blog Post Styles              */
+/* ============================= */
+#latest-news .row > div {
+  margin-bottom: 30px;
+}
+
+#latest-news .blog-post {
+  background-color: #ffffff; /* White */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#latest-news .blog-post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+#latest-news .blog-post img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#latest-news .blog-post .post-info {
+  padding: 20px;
+}
+
+#latest-news .blog-post .post-info h3 {
+  font-size: 1.25em;
+  font-weight: bold;
+  color: #003049; /* Dark Blue */
+  margin-bottom: 10px;
+}
+
+#latest-news .blog-post .post-info h3:hover {
+  color: #f4a261; /* Orange */
+}
+
+#latest-news .blog-post .post-info p {
+  font-size: 0.9em;
+  color: #666666; /* Light Grey */
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+#latest-news .blog-post .post-info .post-details {
+  margin-top: 15px;
+  font-size: 0.8em;
+  color: #003049; /* Dark Blue */
+}
+
+#latest-news .blog-post .post-info .post-details span {
+  margin-right: 15px;
+}
+
+#latest-news .blog-post .post-info .post-details i {
+  color: #f4a261; /* Orange */
+  margin-right: 5px;
+}
+
+/* ============================= */
+/* Button Styles                 */
+/* ============================= */
+.text-center .btn {
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: bold;
+  background-color: #f4a261; /* Orange */
+  color: #ffffff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.text-center .btn:hover {
+  background-color: #e76f51; /* Dark Orange */
+  transform: scale(1.05);
+}
+
+/* ============================= */
+/* Responsive Design             */
+/* ============================= */
+@media (max-width: 768px) {
+  #latest-news {
+    padding: 60px 15px;
+  }
+
+  #latest-news .section-title h2 {
+    font-size: 2em;
+  }
+
+  #latest-news .blog-post .post-info h3 {
+    font-size: 1.1em;
+  }
+
+  .text-center .btn {
+    font-size: 0.9em;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  #latest-news {
+    padding: 40px 10px;
+  }
+
+  #latest-news .section-title h2 {
+    font-size: 1.75em;
+  }
+
+  #latest-news .blog-post .post-info h3 {
+    font-size: 1em;
+  }
+
+  .text-center .btn {
+    font-size: 0.85em;
+    padding: 8px 16px;
+  }
+}
